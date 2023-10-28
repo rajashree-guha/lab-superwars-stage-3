@@ -38,9 +38,7 @@ const PLAYERS = [
         };
         
         detailedPlayers.push(initialize);
-  
     });
-  
     return detailedPlayers;
   };
   
@@ -50,28 +48,20 @@ var getRandomStrength = () => {
   };
   
   // Build player template
-  const buildPlayers = (players, type) => {
+    const buildPlayers = (players, type) => {
     let fragment = "";
   
     // Instead of using for loop
     // Use chaining of Array methods - filter, map and join
     // Type your code here
-    var filter = players.filter((curr) => {
-      return curr.type == type;
-    });
-    
-    var map = filter.map((curr) => {
-      var output = `<div class="player">
-      <img src="${curr.image}" alt="">
-      <div class="name">${curr.name}</div>
-      <div class="strength">${curr.strength}</div>
-   </div>`
-  
-   return output;
-  });
-  
-  return map.join('');
-};
+    fragment = players.filter((curr) => curr.type === type).map((curr) => `<div class="player">
+    <img src="${curr.image}" alt="">
+    <div class="name">${curr.name}</div>
+    <div class="strength">${curr.strength}</div></div>`
+    ).join("");
+
+    return fragment;
+}
   
   // Display players in HTML
   const viewPlayers = (players) => {
